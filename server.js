@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // routes handled in separate script files
-require("app/routes/api_routes")(app);
-require("app/routes/html_routes")(app);
+require("./app/routes/api_routes")(app);
+require("./app/routes/html_routes")(app);
 
 // tell the server to start listening for connections
 app.listen(PORT, function() {
