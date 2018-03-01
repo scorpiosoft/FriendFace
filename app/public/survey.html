@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Font Awesome CSS -->
   <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
 
@@ -144,7 +144,7 @@
     <br>
 
     <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fas fa-check-circle" aria-hidden="true"></i>
      Submit</button>
 
     <hr>
@@ -163,7 +163,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times-circle" aria-hidden="true"></i></button>
           <h2 class="modal-title"><strong>Best Match</strong></h2>
         </div>
         <div class="modal-body">
@@ -179,32 +179,35 @@
   </div>
 
   <script type="text/javascript">
-    // Capture the form inputs
-    $("#submit").on("click", function(event) {
+    // get the input
+    $("#submit").on("click", function(event)
+    {
       event.preventDefault();
 
-      // Form validation
-      function validateForm() {
+      // form validation
+      function validateForm()
+      {
         var isValid = true;
-        $(".form-control").each(function() {
-          if ($(this).val() === "") {
+        $(".form-control").each(function()
+        {
+          if ($(this).val() === "")
             isValid = false;
-          }
         });
 
-        $(".custom-select").each(function() {
-
-          if ($(this).val() === "") {
+        $(".custom-select").each(function()
+        {
+          if ($(this).val() === "")
             isValid = false;
-          }
         });
         return isValid;
       }
 
-      // If all required fields are filled
-      if (validateForm()) {
-        // Create an object for the user"s data
-        var userData = {
+      // validate the input
+      if (validateForm())
+      {
+        // create an object for the new user
+        var userData =
+        {
           name: $("#name").val(),
           photo: $("#photo").val(),
           scores: [
@@ -221,16 +224,15 @@
           ]
         };
 
-        // AJAX post the data to the friends API.
-        $.post("/api/friends", userData, function(data) {
-
-          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+        // post the data to the friends API
+        $.post("/api/friends", userData, function(data)
+        {
+          // grab the post result and prepare to display best match
           $("#match-name").text(data.name);
           $("#match-img").attr("src", data.photo);
 
-          // Show the modal with the best match
+          // show the modal to display the best match
           $("#results-modal").modal("toggle");
-
         });
       } else {
         alert("Please fill out all fields before submitting!");
@@ -241,7 +243,7 @@
   <!-- Bootstrap Script -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 
