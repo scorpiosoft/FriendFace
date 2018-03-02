@@ -144,7 +144,6 @@
     <br>
     <br>
 
-    <!-- Submit Button -->
     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fas fa-check-circle" aria-hidden="true"></i>
      Submit</button>
 
@@ -164,15 +163,17 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times-circle" aria-hidden="true"></i></button>
-          <h2 class="modal-title">Best Match</h2>
+          <button type="button" class="close right" data-dismiss="modal"><i class="fas fa-times-circle" aria-hidden="true"></i></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-header">
+          <h2 class="modal-title left">Best Match</h2>
+        </div>
+        <div class="modal-body bg-info">
           <h2 id="match-name"></h2>
-          <img id="match-img" src="" alt="friend_image">
+          <img id="match-img" src="" alt="friend_image" width="90%">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
         </div>
       </div>
 
@@ -180,7 +181,7 @@
   </div>
 
   <!-- Bootstrap Script -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -232,16 +233,16 @@ $("#submit").on("click", function(event)
       name: $("#name").val(),
       photo: $("#photo").val(),
       scores: [
-        $("#q1").val(),
-        $("#q2").val(),
-        $("#q3").val(),
-        $("#q4").val(),
-        $("#q5").val(),
-        $("#q6").val(),
-        $("#q7").val(),
-        $("#q8").val(),
-        $("#q9").val(),
-        $("#q10").val()
+        parseInt($("#q1").val()),
+        parseInt($("#q2").val()),
+        parseInt($("#q3").val()),
+        parseInt($("#q4").val()),
+        parseInt($("#q5").val()),
+        parseInt($("#q6").val()),
+        parseInt($("#q7").val()),
+        parseInt($("#q8").val()),
+        parseInt($("#q9").val()),
+        parseInt($("#q10").val())
       ]
     };
 
@@ -256,7 +257,7 @@ $("#submit").on("click", function(event)
       $("#results-modal").modal("toggle");
     });
   } else {
-    alert("Please fill out all fields before submitting!");
+    alert("Please answer all questions before submitting!");
   }
 });
   </script>
