@@ -1,9 +1,6 @@
 # FriendFace
 An Express app demonstrating the use of routes.  A parody app for matching people with like interests.
 
-## Deployed
- - [via Heroku](https://salty-island-18125.herokuapp.com/)
-
 ## Built With
 
 * Node.js
